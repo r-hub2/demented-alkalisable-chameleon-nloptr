@@ -111,10 +111,10 @@ optSol <- rep(0, 5)
 optVal <- 1
 
 testRun <- nloptr(x0, fn1, eval_g_eq = eqn1,
-                  opts = list(algorithm = "NLOPT_LN_AUGLAG_EQ", xtol_rel = 1e-6,
+                  opts = list(algorithm = "NLOPT_LN_AUGLAG_EQ", xtol_rel = 1e-4,
                               maxeval = 10000L,
                               local_opts = list(algorithm = "NLOPT_LN_COBYLA",
-                                                xtol_rel = 1e-6)))
+                                                xtol_rel = 1e-4)))
 
 expect_equal(testRun$solution, optSol, tolerance = tol)
 expect_equal(testRun$objective, optVal, tolerance = tol)
@@ -133,10 +133,10 @@ gr1 <- function(x) {
 heqjac <- function(x) nl.jacobian(x0, eqn1)
 
 testRun <- nloptr(x0, fn1, gr1, eval_g_eq = eqn1, eval_jac_g_eq = heqjac,
-                  opts = list(algorithm = "NLOPT_LD_AUGLAG_EQ", xtol_rel = 1e-6,
+                  opts = list(algorithm = "NLOPT_LD_AUGLAG_EQ", xtol_rel = 1e-4,
                               maxeval = 10000L,
                               local_opts = list(algorithm = "NLOPT_LN_COBYLA",
-                                                xtol_rel = 1e-6)))
+                                                xtol_rel = 1e-4)))
 
 expect_equal(testRun$solution, optSol, tolerance = tol)
 expect_equal(testRun$objective, optVal, tolerance = tol)
