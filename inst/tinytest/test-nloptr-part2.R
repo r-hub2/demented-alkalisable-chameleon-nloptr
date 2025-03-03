@@ -20,6 +20,14 @@ options(digits = 7)
 
 tol <- sqrt(.Machine$double.eps)
 
+########################## Tests for nloptr.c ##################################
+ctl <- list(xtol_rel = 1e-8, maxeval = 1000L)
+fn <- function(x) x ^ 2 - 4 * x + 4
+lb <- 0
+ub <- 6
+optSol <- 2
+optVal <- 0
+
 ## NLOPT_LN_NEWUOA_BOUND
 fn <- function(x) x[1L] ^ 4 + x[2L] ^ 2 - 5 * x[1L] * x[2L] + 5
 gr <- function(x) c(4 * x[1L] ^ 3 - 5 * x[2L], 2 * x[2L] - 5 * x[1L])
