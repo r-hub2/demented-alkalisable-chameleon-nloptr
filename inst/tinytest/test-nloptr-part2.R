@@ -45,6 +45,7 @@ expect_equal(testRun$solution, optSol, tolerance = 1e-5)
 expect_equal(testRun$objective, optVal, tolerance = tol)
 expect_true(testRun$iterations <= ctl$maxeval + 5)
 expect_true(testRun$status > 0)
+exit_file("nloptr-part2.R")
 
 ## NLOPT_GN_ESCH
 alg <- list(algorithm = "NLOPT_GN_ESCH")
