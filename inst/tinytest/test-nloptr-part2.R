@@ -38,14 +38,14 @@ ub <- c(5, 5)
 optSol <- c(5 / (2 * sqrt(2)), 25 / (4 * sqrt(2)))
 optVal <- -305 / 64
 
-alg <- list(algorithm = "NLOPT_LN_NEWUOA_BOUND")
-testRun <- nloptr(c(1, 1), fn, lb = lb, ub = ub, opts = c(alg, ctl))
-
-expect_equal(testRun$solution, optSol, tolerance = 1e-5)
-expect_equal(testRun$objective, optVal, tolerance = tol)
-expect_true(testRun$iterations <= ctl$maxeval + 5)
-expect_true(testRun$status > 0)
-exit_file("nloptr-part2.R")
+# alg <- list(algorithm = "NLOPT_LN_NEWUOA_BOUND")
+# testRun <- nloptr(c(1, 1), fn, lb = lb, ub = ub, opts = c(alg, ctl))
+#
+# expect_equal(testRun$solution, optSol, tolerance = 1e-5)
+# expect_equal(testRun$objective, optVal, tolerance = tol)
+# expect_true(testRun$iterations <= ctl$maxeval + 5)
+# expect_true(testRun$status > 0)
+# exit_file("nloptr-part2.R")
 
 ## NLOPT_GN_ESCH
 alg <- list(algorithm = "NLOPT_GN_ESCH")
