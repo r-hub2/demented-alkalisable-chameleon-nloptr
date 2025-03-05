@@ -153,6 +153,7 @@ ub <- c(5, 5)
 optSol <- c(5 / (2 * sqrt(2)), 25 / (4 * sqrt(2)))
 optVal <- -305 / 64
 
+## TO DO: check why this is not working
 ## NLOPT_LN_NEWUOA_BOUND
 # alg <- list(algorithm = "NLOPT_LN_NEWUOA_BOUND")
 # testRun <- nloptr(c(1, 1), fn, lb = lb, ub = ub, opts = c(alg, ctl))
