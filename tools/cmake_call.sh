@@ -23,7 +23,6 @@ fi
 mkdir nlopt-build
 mkdir nlopt
 cd nlopt-build
-echo ${CMAKE_BIN}
 ${CMAKE_BIN} \
   -D BUILD_SHARED_LIBS=OFF \
   -D CMAKE_BUILD_TYPE=Release \
