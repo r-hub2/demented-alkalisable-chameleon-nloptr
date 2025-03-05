@@ -3360,6 +3360,8 @@ fi
           ## also error to end configure here
           as_fn_error $? "Could not find 'cmake'." "$LINENO" 5
        fi
+       { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: using cmake via ${CMAKE_BIN}" >&5
+printf "%s\n" "using cmake via ${CMAKE_BIN}" >&6; }
     fi
     ## 'uname -m' on M1 give x86_64 which is ... not helping
     machine=`"${R_HOME}/bin/Rscript" -e 'cat(Sys.info()["machine"])'`

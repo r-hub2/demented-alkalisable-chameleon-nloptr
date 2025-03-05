@@ -49,7 +49,7 @@ VignetteBuilder: knitr
 URL: https://github.com/astamm/nloptr, https://astamm.github.io/nloptr/
 BugReports: https://github.com/astamm/nloptr/issues
 NeedsCompilation: yes
-Packaged: 2025-03-05 16:55:44 UTC; stamm-a
+Packaged: 2025-03-05 17:10:24 UTC; stamm-a
 Author: Jelmer Ypma [aut],
   Steven G. Johnson [aut] (author of the NLopt C library),
   Aymeric Stamm [ctb, cre] (<https://orcid.org/0000-0002-8725-3654>),
