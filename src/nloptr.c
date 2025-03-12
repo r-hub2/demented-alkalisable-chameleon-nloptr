@@ -118,15 +118,15 @@ static int compAlg(const void *va, const void *vb) {
   return strcmp(a->key, b->key);
 }
 
-int getVal(char *key) {
-  ALGPAIR key_pair[1] = {{key}};
-  ALGPAIR *pair = bsearch(key_pair, algtable, sizeof algtable / sizeof algtable[0],
+int getVal(const char *key) {
+  // ALGPAIR key_pair[1] = {{key}};
+  ALGPAIR *pair = bsearch(&key, algtable, sizeof algtable / sizeof algtable[0],
                           sizeof algtable[0], compAlg);
   return pair ? pair->value : -1;
 }
 
 // Convert passed string to an nlopt_algorithm item.
-nlopt_algorithm getAlgorithmCode(char *algorithm_str) {
+nlopt_algorithm getAlgorithmCode(const char *algorithm_str) {
 
   nlopt_algorithm algorithm;
 
