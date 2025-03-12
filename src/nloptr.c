@@ -119,7 +119,8 @@ static int compAlg(const void *va, const void *vb) {
 }
 
 int getVal(const char *key) {
-  ALGPAIR *pair = bsearch(&key, algtable, sizeof algtable / sizeof algtable[0],
+  ALGPAIR key_pair[1] = {{key}};
+  ALGPAIR *pair = bsearch(key_pair, algtable, sizeof algtable / sizeof algtable[0],
                           sizeof algtable[0], compAlg);
   return pair ? pair->value : -1;
 }
