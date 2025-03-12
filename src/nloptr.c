@@ -126,11 +126,11 @@ int getVal(char *key) {
 }
 
 // Convert passed string to an nlopt_algorithm item.
-nlopt_algorithm getAlgorithmCode(char *algorithm_str) {
+nlopt_algorithm getAlgorithmCode(const char *algorithm_str) {
 
   nlopt_algorithm algorithm;
 
-  switch(getVal(algorithm_str)) {
+  switch(getVal((char*)algorithm_str)) {
   case 1:
     algorithm = NLOPT_GD_MLSL;
     break;
@@ -667,7 +667,7 @@ nlopt_opt getOptions(SEXP R_options, int num_controls, int *flag_encountered_err
 
   // R_algorithm_str will contain the first (should be the only one) element of the list.
   SEXP R_algorithm_str = PROTECT(STRING_ELT(R_algorithm, 0));
-  char* algorithm_str = CHAR(R_algorithm_str);
+  const char* algorithm_str = CHAR(R_algorithm_str);
   nlopt_algorithm algorithm = getAlgorithmCode(algorithm_str);
 
   // Declare options.
