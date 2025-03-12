@@ -118,15 +118,15 @@ static int compAlg(const void *va, const void *vb) {
   return strcmp(a->key, b->key);
 }
 
-int getVal(const char *key) {
-  // ALGPAIR key_pair[1] = {{key}};
-  ALGPAIR *pair = bsearch(&key, algtable, sizeof algtable / sizeof algtable[0],
+int getVal(char *key) {
+  ALGPAIR key_pair[1] = {{key}};
+  ALGPAIR *pair = bsearch(key_pair, algtable, sizeof algtable / sizeof algtable[0],
                           sizeof algtable[0], compAlg);
   return pair ? pair->value : -1;
 }
 
 // Convert passed string to an nlopt_algorithm item.
-nlopt_algorithm getAlgorithmCode(const char *algorithm_str) {
+nlopt_algorithm getAlgorithmCode(char *algorithm_str) {
 
   nlopt_algorithm algorithm;
 
@@ -667,7 +667,7 @@ nlopt_opt getOptions(SEXP R_options, int num_controls, int *flag_encountered_err
 
   // R_algorithm_str will contain the first (should be the only one) element of the list.
   SEXP R_algorithm_str = PROTECT(STRING_ELT(R_algorithm, 0));
-  const char* algorithm_str = CHAR(R_algorithm_str);
+  char* algorithm_str = CHAR(R_algorithm_str);
   nlopt_algorithm algorithm = getAlgorithmCode(algorithm_str);
 
   // Declare options.
